@@ -41,12 +41,12 @@ function onClickButtonCheckCupon(){
     const inputCupon = document.getElementById("inputCupon");
     const valueCupon = inputCupon.value;
 
-    const cupon = cuponesValidos.find(cupon => cupon.nombre == valueCupon);
-    
+    const cuponComprobado = cuponesValidos.find(cupon => cupon.nombre == valueCupon);
+
     const resultPrice = document.getElementById("resultPrice")
 
-    if(cupon){
-        resultPrice.innerText = "Le corresponde un: " + cupon.descuento + " % de descuento";
+    if(cuponComprobado){
+        resultPrice.innerText = "Le corresponde un: " + cuponComprobado.descuento + " % de descuento";
     }else{
         resultPrice.innerText = "Lo sentimos, no hay un cupón activo con ese nombre";
     }
