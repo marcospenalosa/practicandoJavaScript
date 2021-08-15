@@ -10,7 +10,8 @@ function calcularMediaAritmetica(lista){
     const sumaLista = lista.reduce( (valorAcumulado = 0, ElementoDelArray) => valorAcumulado + ElementoDelArray);
 
     let promedio = sumaLista / lista.length;
-    return promedio;
+    //return promedio;
+    return Math.round((promedio + Number.EPSILON) * 100) / 100;
 }
 
 
@@ -55,7 +56,8 @@ function calcularMediana(lista){
     }else{
         mediana = listaOrdenada[mitadListaOrdenada];
     }
-    return mediana;
+    //return mediana;
+    return Math.round((mediana + Number.EPSILON) * 100) / 100;
 }
 
 function calcularModa(lista){
@@ -77,9 +79,9 @@ function calcularModa(lista){
     return moda;
 }
 
-const lista1 = [
+/*const lista1 = [
   3,5,12
-];
+];*/
 
 
 //La media geométrica consiste en multiplicar los elementos y calcular la raiz "enésima" de esa multiplicación
@@ -104,5 +106,65 @@ function calcularMediaGeometrica(lista){
     //Para calcular la raíz "enésima" se puede utilizar la potencia con un exponente divido
     //Si necesito la ráiz octava de 200 => 200 elevado a 1 / 8 
     const mediaGeometrica = Math.pow(totalMultiplicado, 1 / enesima);   
-    return mediaGeometrica;
+    //return mediaGeometrica;
+    return Math.round((mediaGeometrica + Number.EPSILON) * 100) / 100;
+}
+
+function inputValue(idElementHtml){
+    const input = document.getElementById(idElementHtml);
+    return input.value;
+}
+
+let listaNumeros = [];
+
+function addList(){
+    const lista = inputValue("inputList");   
+
+    //Recorro la lista que recibo
+    let numero = "";
+    for(let i=0; i < lista.length; i++){
+
+        //Compruebo si el caracter es número hasta que haya otro tipo de caracter
+        if(!isNaN(parseInt(lista.charAt(i)))){
+            console.log(numero)
+            numero = numero + lista.charAt(i);
+
+            //Si es la última posición del STRING lo añado
+            if(i === (lista.length-1) ){
+                listaNumeros.push(parseFloat(numero));
+            }
+        }
+        else if (numero){
+            listaNumeros.push(parseFloat(numero));
+            numero = "";
+        }
+
+    }
+
+    let parrafo = document.getElementById("listaNumeros");
+    parrafo.innerText = listaNumeros
+    const inputLista = document.getElementById("inputList");
+    inputLista.value = "";
+}
+
+function delLastList(){
+    listaNumeros.pop();
+
+    let parrafo = document.getElementById("listaNumeros");
+    parrafo.innerText = listaNumeros
+    console.log(listaNumeros)
+}
+
+function onClickCalcular(){
+    const mediaAritmetica = calcularMediaAritmetica(listaNumeros);
+    const mediaGeometrica = calcularMediaGeometrica(listaNumeros);
+    const mediana = calcularMediana(listaNumeros);
+    const moda = calcularModa(listaNumeros);
+
+    const calculo = document.getElementById("calculoEstadistico")
+    calculo.innerText = "Media aritmética: " + mediaAritmetica + "\n" +
+                        "Media geométrica: " + mediaGeometrica + "\n" +
+                        "Mediana: " + mediana + "\n" +
+                        "Moda: " + moda[0];
+
 }

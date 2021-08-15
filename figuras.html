@@ -1,35 +1,103 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
     <title>Figuras geométricas | Practicando JavaScript</title>
 </head>
+
 <body>
-    <header>
-        <h1>
-            Figuras geométricas
-        </h1>
-        <p>Este es el primer taller del curso</p>
-    </header>
+    
 
-    <section>
-        <h2> Calcula el área y perímetro de un cuadrado</h2>
-        <form>
-            <label for="inputCuadrado">
-                Escribe cuanto mide el lado del cuadrado.
-            </label>
-            <input type="number" id="inputCuadrado">
-            <button type="button" onclick="calcularPerimetroCuadrado()">
-                Calcular el perímetro
-            </button>
-            <button type="button" onclick="calcularAreaCuadrado()"">
-                Calcular el área
-            </button>
-        </form>
-    </section>
+        <header class="header">
+            <div class="header__wrapperAll">
+                <div class="header__logo">
+                    <a href="index.html"><img src="./img/calculator.svg" alt="Logo de inicio"></a>
+                </div>
 
+                <nav class="header__nav">
+                    <ul>
+                        <li><a  class="header__active" href="./figuras.html">Figuras geométricas</a></li>
+                        <li><a href="./descuentos.html">Descuentos</a></li>
+                        <li><a href="./estadistica.html">Estadística</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </header>
+
+    <div class="wrapper__main__footer">
+        <main class="main">
+            <h1 class="main__h1">Figuras geométricas</h1>
+            <div class="main__wrapperCard">
+
+                <section class="main__card card_figuras">
+                    <h2>Triángulo</h2>
+                    <form class="figurasGeometricas" action="">
+                        <label for="inputTrianguloLado1">
+                            Lado 1 del triángulo.
+                        </label>
+                        <input type="number" id="inputTrianguloLado1">
+
+                        <label for="inputTrianguloLado2">
+                            Lado 2 del triángulo.
+                        </label>
+                        <input type="number" id="inputTrianguloLado2">
+
+                        <label for="inputTrianguloBase">
+                            Base del Triángulo.
+                        </label>
+                        <input type="number" id="inputTrianguloBase">
+                        <button type="button" onclick="calcularDatosTriangulo()">
+                            Calcular área, perímetro y altura
+                        </button>
+                    </form>
+                    <p class="figurasGeometricas__parrafo" id="resultTriangulo"></p>
+                </section>
+
+                <section class="main__card card_figuras">
+                    <h2>Cuadrado</h2>
+                    <form class="figurasGeometricas" action="">
+                        <label for="inputCuadrado">
+                            Lado del cuadrado.
+                        </label>
+                        <input type="number" id="inputCuadrado">
+                        <button type="button" onclick="calcularDatosCuadrado()">
+                            Calcular área y perímetro
+                        </button>
+                    </form>
+                    <p class="figurasGeometricas__parrafo" id="resultCuadrado"></p>
+                </section>
+
+                <section class="main__card card_figuras">
+                    <h2>Círuclo</h2>
+                    <form class="figurasGeometricas" action="">
+                        <label for="inputCirculo">
+                            Radio del círculo.
+                        </label>
+                        <input type="number" id="inputCirculo">
+                        <button type="button" onclick="calcularDatosCirculo()">
+                            Calcular área y perímetro
+                        </button>
+                    </form>
+                    <p class="figurasGeometricas__parrafo" id="resultCirculo"></p>
+                </section>
+
+                
+            </div>
+
+        </main>
+
+        <footer class="footer">    
+            <p>Desing by Marcos Peñalosa</p>
+            <nav class="social">
+                <a href="https://github.com/marcospenalosa" target="_blank" rel="noopener noreferrer"><img src="./img/github.svg" alt=""></a>
+                <a href="https://www.linkedin.com/in/marcos-pe%C3%B1alosa/" target="_blank" rel="noopener noreferrer"><img src="./img/linkedin.svg" alt=""></a>
+            </nav>
+            
+        </footer>
+    </div>
     <script src="./figuras.js"></script>
 </body>
 </html>

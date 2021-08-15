@@ -1,37 +1,73 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
     <title>Estadística | Practicando JavaScript</title>
 </head>
+
 <body>
-    <header>
-        <h1>Estadística</h1>
-    </header>
-
-    <!-- <section>
-        <h2>Calcula el precio a pagar de tus productos con descuento</h2>
-
-        <form action="">
-            <label for="inputPrice">Escribe el precio de tu producto</label>
-            <input id="inputPrice" type="number">
-
-            <label for="inputDiscount">Escribe el descuento de tu producto</label>
-            <input id="inputDiscount" type="number">
-
-            <button type="button" onclick="onClickButtonPriceDiscount()">Calcular el precio con descuento</button>
-
-            <label for="inputCupon">Escribe el cupón de descuento</label>
-            <input id="inputCupon" type="text">
-            <button type="button" onclick="onClickButtonCheckCupon()">Comprobar el cupon de descuento</button>
-        </form>
-
-        <p id="resultPrice"></p>
-    </section> -->
     
 
+        <header class="header">
+            <div class="header__wrapperAll">
+                <div class="header__logo">
+                    <a href="index.html"><img src="./img/calculator.svg" alt="Logo de inicio"></a>
+                </div>
+
+                <nav class="header__nav">
+                    <ul>
+                        <li><a href="./figuras.html">Figuras geométricas</a></li>
+                        <li><a href="./descuentos.html">Descuentos</a></li>
+                        <li><a class="header__active" href="./estadistica.html">Estadística</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </header>
+
+    <div class="wrapper__main__footer">
+        <main class="main">
+            <h1 class="main__h1">Estadística</h1>
+            <div class="main__wrapperCard">
+
+                <section class="main__card card_figuras">
+                    <h2>Media, mediana y moda</h2>
+
+                    <form class="figurasGeometricas" action="">
+
+                        <label for="inputList">Lista de números</label>
+                        <input id="inputList" placeholder="Ej: 1 7 20 50 358">
+
+                        <button type="button" onclick="addList()">Añadir a la lista</button>
+                        <button type="button" onclick="delLastList()">Eliminar el último elemento</button>
+
+
+                        <p class="figurasGeometricas__parrafo" id="listaNumeros"></p>
+
+                        
+                        <button type="button" onclick="onClickCalcular()">Calcular</button>
+
+                    </form>
+
+                    <p class="figurasGeometricas__parrafo" id="calculoEstadistico"></p>
+
+                </section>
+                
+            </div>
+
+        </main>
+
+        <footer class="footer">    
+            <p>Desing by Marcos Peñalosa</p>
+            <nav class="social">
+                <a href="https://github.com/marcospenalosa" target="_blank" rel="noopener noreferrer"><img src="./img/github.svg" alt=""></a>
+                <a href="https://www.linkedin.com/in/marcos-pe%C3%B1alosa/" target="_blank" rel="noopener noreferrer"><img src="./img/linkedin.svg" alt=""></a>
+            </nav>
+            
+        </footer>
+    </div>
     <script src="./estadistica.js"></script>
 </body>
 </html>

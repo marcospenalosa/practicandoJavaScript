@@ -4,12 +4,13 @@
     /*  Variables del proyecto  */
    
     /*  Colores  */
-    --primary-color     : #A239CA;
-    --primary-color-alt : #4717F6;
-    --a-color           : #479EFE;
-    --title-color       : #FFFFFF;
-    --text-color        : #FFFFFF;
+    --primary-color     : rgb(162, 57, 202);
+    --primary-color-alt : rgb(71, 158, 254);
+    --title-color       : var(--primary-color);
+    --text-color        : var(--primary-color);
     --body-bg-color     : #0E0B16;
+    --card-bg-color     : #09080c;;
+    --header-bg-color   : #09080c;
     --color             : var(--primary-color);
     --color-alt         : var(--primary-color-alt);
 
@@ -19,6 +20,7 @@
 
      /*  Tamaños  */
     --header-height     : 3rem;
+    --footer-height     : 6rem;
     --section-spacing   : 4rem;
     --block-spacing     : 2rem;
     --body-line-height  : 1.6;
@@ -46,7 +48,7 @@
 
     /* Otros */
     --border-radius : 0.5rem;
-    --box-shadow    : 0 2px 2px rgba(36, 47, 66, 0.1);
+    --box-shadow    : 1px 4px 4px rgba(255, 255, 255, 0.1);
 }
 
 @media screen and (min-width: 1024px) {
@@ -89,7 +91,7 @@ body {
 
 
 a {
-color           : var(--a-color);
+color           : var(--primary-color);
 text-decoration : none;
 }
 
@@ -135,7 +137,6 @@ font-size : var(--h4-font-size);
     align-items: center;
     width: 100%;
     max-width: 1400px;
-    background-color: red;
 }
 .header__logo{
     margin              : 0 2rem;
@@ -156,49 +157,195 @@ font-size : var(--h4-font-size);
 
 }
 .header__nav li a{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 1rem;
+    height              : 100%;
+    display             : flex;
+    align-items         : center;
+    padding             : 1rem;
 }
 /* ------------- Margin para tener los 2 rem de margen con el 1rem del padding ------------*/
 .header__nav li:last-child a{
-    margin-right: 1rem;
+    margin-right        : 1rem;
 }
 .header li a:hover{
-    border-bottom:var(--primary-color) solid 0.5rem ;
-    padding-bottom: calc(1rem - 0.5rem);
-    color: var(--primary-color)
+    border-bottom       : var(--primary-color-alt) solid 0.5rem ;
+    padding-bottom      : calc(1rem - 0.5rem);
+    color               : var(--primary-color-alt);
+}
+.header__active{
+    color               : var(--primary-color-alt);
 }
 
 /* ------------- CENTRAR MAIN y FOOTER -------------- */
 
 .wrapper__main__footer{
-    max-width: 1400px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: yellow;
+    max-width       : 1400px;
+    width           : 100%;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : center;
 }
 
 /* ------------- MAIN -------------- */
 .main{
-    background-color: darkolivegreen;
-    width: 100%;
-    min-height: calc(100vh - 2 * var(--header-height));
-    display: flex;
-    flex-direction: column;
-    align-items: center;   
+    width           : 100%;
+    min-height      : calc(100vh - var(--header-height) - var(--footer-height));
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;   
 }
-.main h1{
-    margin-top: var(--block-spacing);
+.main__h1{
+    margin          : var(--block-spacing);
+    text-align      : center;
 }
+.main__wrapperCard{
+    width           : calc(100% - 4rem);
+    display         : flex;
+    justify-content : space-evenly;
+    flex-wrap       : wrap;
+    
+}
+.main__card{
+    width           : 22rem;
+    background-color: var(--card-bg-color);
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    margin          : 1rem 1rem;
+    border-radius   : var(--border-radius);
+    box-shadow      : var(--box-shadow);
+    outline         : 1px solid rgba(162, 57, 202, 0.5);
+}
+.main__card a{
+    width           : 100%;
+    height          : 100%;
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    padding         : 1rem;
+    color           : var(--primary-color);
+}
+.main__card img{
+    max-width       : 50%;
+    height          : auto;
+}
+.main__card h2,
+.main__card img{
+    color           : var(--primary-color);
+    margin-bottom   : 2rem;
+}
+.main__card h2,
+.main__card img,
+.main__card p{
+    text-align      : center;
+}
+.main__card__index:hover{
+    outline         : 2px solid rgba(71, 158, 254, 0.8);
+}
+.main__card__index:hover h2,
+.main__card__index:hover a{
+    color           : var(--primary-color-alt)
+}
+
+
+/* ---------- Quitar las flechas de los input números ---*/ 
+/* Chrome: */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance  : none;
+    margin              : 0;
+}
+/* Firefox: */
+input[type="number"] {
+    -moz-appearance     : textfield;
+}
+input[type="number"]:hover,
+input[type="number"]:focus {
+    -moz-appearance     : number-input;
+}
+/* Other */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance  : none;
+    margin              : 0;
+}
+/* ---------- Quitar las flechas de los input números ---*/ 
+
+/* ------------- FIGURAS GEOMÉTRICAS -------------- */
+
+
+.figurasGeometricas{
+    display             : flex;
+    flex-direction      : column;
+    align-items         : center;
+}
+.card_figuras h2{
+    margin              : 1rem 0;
+}
+.figurasGeometricas input{
+    border              : none;
+    border-bottom       : 2px solid var(--primary-color);
+    background-color    : var(--card-bg-color);
+    outline             : none;
+    margin              : 1rem 0 2rem 0;
+    color               : var(--primary-color);
+    font-size           : var(--normal-font-size);
+    text-align          : center;
+    padding-bottom      : 0.25rem;
+}
+.figurasGeometricas input:hover{
+    border-bottom       : 2px solid var(--primary-color-alt);
+}
+.figurasGeometricas input:focus{
+    border-bottom       : 2px solid var(--primary-color-alt);
+}
+.figurasGeometricas button{
+    border              : 2px solid var(--primary-color);
+    padding             : 1rem ;
+    background-color    : var(--card-bg-color);
+    border-radius       : var(--border-radius);
+    outline             : none;
+    margin              : 1rem 0 2rem 0;
+    color               : var(--primary-color);
+    font-size           : var(--normal-font-size);
+    text-align          : center;
+}
+.figurasGeometricas button:hover{
+    border              : 2px solid var(--primary-color-alt);
+    color               : var(--primary-color-alt);
+    cursor              : pointer;
+}
+.figurasGeometricas__parrafo{
+    color               : var(--primary-color-alt);
+    margin-bottom       : 1rem;
+    line-height         : 2;
+}
+
+
+
+
 
 /* ------------- FOOTER -------------- */
 .footer{
-    height: var(--header-height);
-    background-color: darkred;
-    width: 100%;
+    height          : var(--footer-height);
+    width           : 100%;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    align-items     : center;
+    overflow        : hidden;
+}
+.social{
+    display         : flex;
+    flex-direction  : row;
+    justify-content : center;
+    align-items     : center;
+    margin-top      : 0.5rem;
+}
+.social a{
+    display         : flex;
+    justify-content : center;
+}
+.social img{
+    width           :35%;
 }
